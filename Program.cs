@@ -10,8 +10,8 @@ internal class Program
         var engine = new EscuelaEngine();
         engine.Inicializar();
 
-        Printer.WriteTitle("Imprimir Objeto");
-        ImprimirCursos(engine.Escuela);
+        // Printer.WriteTitle("Imprimir Objeto");
+        // ImprimirCursos(engine.Escuela);
 
         Dictionary<int, string> diccionario = new Dictionary<int, string>();
         diccionario.Add(10, "Paul");
@@ -24,36 +24,7 @@ internal class Program
 
         var dicTmp = engine.GetDiccionarioObjetos();
 
-        // Printer.WriteTitle("Acceso a diccionario");
-        // diccionario[0] = "Pekerman";
-        // WriteLine(diccionario[23]);
-        // WriteLine(diccionario[0]);
-
-
-        // Printer.WriteTitle("Otro diccionario");
-        // var dic = new Dictionary<string, string>();
-        // dic["Luna"] = "Cuerpo celeste que gira al rededor de la tierra";
-        // WriteLine(dic["Luna"]);
-        // dic["Luna"] = "Protagonista";
-        // WriteLine(dic["Luna"]);
-
-
-
-
-        // var listaObjetos = engine.GetObjetoEscuelas(
-        //     out int conteoEvaluaciones,
-        //     out int conteoCursos,
-        //     out int conteoAsignaturas,
-        //     out int conteoAlumnos,
-        //     true,
-        //     false,
-        //     false,
-        //     false
-        // );
-
-        // var listaILugar = from obj in listaObjetos
-        //                   where obj is ILugar
-        //                   select (ILugar)obj;
+        engine.ImprimirDiccionario(dicTmp, true);
 
         Printer.WriteTitle("FIN");
     }
