@@ -7,11 +7,12 @@ internal class Program
 {
     private static void Main(string[] args)
     {
+        AppDomain.CurrentDomain.ProcessExit += AccionDelEvento;
+        AppDomain.CurrentDomain.ProcessExit += (o, s) => Printer.Beep(100, 100, 1);
+        AppDomain.CurrentDomain.ProcessExit -= AccionDelEvento;
+
         var engine = new EscuelaEngine();
         engine.Inicializar();
-
-        // Printer.WriteTitle("Imprimir Objeto");
-        // ImprimirCursos(engine.Escuela);
 
         Dictionary<int, string> diccionario = new Dictionary<int, string>();
         diccionario.Add(10, "Paul");
@@ -28,6 +29,14 @@ internal class Program
 
         Printer.WriteTitle("FIN");
     }
+
+    private static void AccionDelEvento(object sender, EventArgs e)
+    {
+        Printer.WriteTitle("Saliendo");
+        //Printer.Beep(3000, 1000, 3);
+        Printer.WriteTitle("Salio");
+    }
+
     private static void ImprimirCursos(Escuela escuela)
     {
         if (escuela?.Cursos != null)

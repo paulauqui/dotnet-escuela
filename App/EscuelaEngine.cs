@@ -205,15 +205,13 @@ namespace CoreEscuela
         #region Metodos de carga
         private void CargarEvaluaciones()
         {
-            var lista = new List<Evaluacion>();
-
+            var rnd = new Random(System.Environment.TickCount);
             foreach (var curso in Escuela.Cursos)
             {
                 foreach (var asignatura in curso.Asignaturas)
                 {
                     foreach (var alumno in curso.Alumnos)
                     {
-                        var rnd = new Random(System.Environment.TickCount);
                         for (int i = 0; i < 5; i++)
                         {
                             Evaluacion ev = new Evaluacion
@@ -250,6 +248,7 @@ namespace CoreEscuela
                 // CargarCursos
             }
         }
+
         private void CargarCursos()
         {
             Escuela.Cursos = new List<Curso>(){
