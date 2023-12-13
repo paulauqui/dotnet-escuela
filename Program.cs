@@ -50,35 +50,35 @@ internal class Program
         {
             throw new ArgumentException("Nota no puede ser vacio");
         }
+        else
         {
             try
             {
                 newEval.Nota = float.Parse(notastring);
                 if (newEval.Nota < 0 || newEval.Nota > 5)
+                {
                     throw new ArgumentOutOfRangeException("Nota fuera de rango (0-5)");
+                }
+
             }
             catch (ArgumentOutOfRangeException arge)
             {
                 Printer.WriteTitle(arge.Message);
-                WriteLine("Saliendo del programa");
+                // WriteLine("Saliendo del programa");
 
             }
-            catch (Exception)
+            catch
             {
                 Printer.WriteTitle("Nota no es numero");
-                WriteLine("Saliendo del programa");
+
+            }
+            finally
+            {
+                Printer.WriteTitle("Finally");
             }
         }
 
-
-
-
-
-
-
-
-
-        Printer.WriteTitle("FIN");
+        Printer.WriteTitle("Adios");
     }
 
     private static void AccionDelEvento(object sender, EventArgs e)
