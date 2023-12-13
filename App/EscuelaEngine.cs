@@ -1,7 +1,7 @@
 using CoreEscuela.Entidades;
 using CoreEscuela.Util;
 
-namespace CoreEscuela
+namespace CoreEscuela.App
 {
     /// <summary>
     /// sealed no permite heredar
